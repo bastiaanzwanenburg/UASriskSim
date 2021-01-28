@@ -1,0 +1,1 @@
+'''The behavior of all agents is specified in this folder.'''

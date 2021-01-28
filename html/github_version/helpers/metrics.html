@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>github_version.helpers.metrics API documentation</title>
+<meta name="description" content="All metrics are stored using this file." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>github_version.helpers.metrics</code></h1>
+</header>
+<section id="section-intro">
+<p>All metrics are stored using this file.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+All metrics are stored using this file.
+&#39;&#39;&#39;
+
+
+
+from agents.agents import HubAgent, DeliveryPointAgent, ObstacleAgent, PopulationDensity
+from agents.drone_agent import DroneAgent
+from env.loadEnvironment import loadEnvironment
+import numpy as np
+
+&#39;&#39;&#39;File that includes all metrics of the model.&#39;&#39;&#39;
+
+def compute_time_cruise(model):
+    return model.time_cruise
+
+def compute_time_climb_descent(model):
+    return model.time_climb_descent
+
+def compute_time_waiting(model):
+    return model.time_waiting
+
+def compute_time_takeoff_landing(model):
+    return model.time_takeoff_landing
+
+def compute_time_in_shelter_category(model):
+    return model.flight_time_shelter_category
+
+def crash_in_quantile(model):
+    return [model.crash_in_quantile]
+
+def hubpos(model):
+    return [model.hubloc]
+
+def below_1(model):
+    return model.v_below_1
+def below_4(model):
+    return model.v_below_4
+
+def below_5(model):
+    return model.v_below_5
+
+def below_6(model):
+    return model.v_below_6
+
+def same_grid(model):
+    return model.same_grid
+
+def other_grid(model):
+    return model.other_grid
+
+def below_2(model):
+    return model.v_below_2
+
+def below_3(model):
+    return model.v_below_3
+
+def env_avg_risk(model):
+    return model.env_avg_risk
+
+def env_avg_risk_hubs(model):
+    return np.mean(model.env_values_around_hub)
+
+def env_avg_risk_delivery_points(model):
+    return np.mean(model.env_values_around_delivery_points)
+
+def NNI_below_1(model):
+    return model.NNI_below_1
+
+def NNI_below_2(model):
+    return model.NNI_below_2
+
+def NNI_below_3(model):
+    return model.NNI_below_3
+
+def NNI_below_4(model):
+    return model.NNI_below_4
+
+
+def NNI_below_5(model):
+    return model.NNI_below_5
+
+def NNI_below_6(model):
+    return model.NNI_below_6
+
+
+def compute_total_deliveries(model):
+    return model.total_deliveries
+
+def compute_total_pickups(model):
+    return model.total_pickups
+
+def compute_total_demand(model):
+    return model.total_demand
+
+def compute_collective_risk(model):
+    return model.collective_risk
+
+def compute_collective_risk_climb_descend(model):
+    return model.collective_risk_climb_descend
+
+def compute_collective_risk_cruise(model):
+    return model.collective_risk_cruise
+
+def compute_avg_distance_to_impact(model):
+    return [model.crash_dist]
+
+def compute_avg_E_on_impact(model):
+    return [model.Eimp]
+
+
+def area_risk_grid_m(model):
+    return model.area_risk_grid_m
+# def return_heading_list(model):
+#     return model.heading_list
+def density_matrix_scaled_risk(model):
+    return [model.shelter_map_scaled]
+
+def compute_total_flown_time(model):
+    # Only includes finished routes
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    total_flown_time = [a.total_flown_time for a in drone_agents]
+    return sum(total_flown_time)
+
+def compute_flown_time_incl_unfinished(model):
+    # Only includes finished routes
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    flown_time_incl_unfinished = [a.total_flown_time_incl_unfinished for a in drone_agents]
+    return sum(flown_time_incl_unfinished)
+
+
+def modify_alpha(model):
+    return model.modify_alpha
+
+def modify_beta(model):
+    return model.modify_beta
+
+def modify_shelter(model):
+    return model.modify_shelter
+
+def modify_mass(model):
+    return model.modify_mass
+
+
+
+def compute_hover_time(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    hover_time = [a.hover_time for a in drone_agents]
+    return sum(hover_time)
+
+def compute_planned_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    planned_dis = [a.planned_dis_total_completed for a in drone_agents]
+    return sum(planned_dis)
+
+def compute_optimal_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    optimal_dis = [a.optimal_dis_total_completed for a in drone_agents]
+    return sum(optimal_dis)
+
+def compute_flown_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    flown_dis = [a.flown_dis_total_completed for a in drone_agents]
+    return sum(flown_dis)
+
+def compute_individual_risk_map(model):
+    return [model.risk_map_individual]
+
+def position_heatmap(model):
+    return [model.position_heatmap]
+
+# def compute_collective_risk(model):
+#     raise Exception(&#34;This reporter shouldn&#39;t be used, it is not efficient to do this at every iteration.&#34;)
+
+    # NOTE: THE FOLLOWING CODE IS NOT CORRECT!!!!
+    # Population_map = cityEnvironment.density_matrix[0:cityEnvironment.density_matrix.shape[0]:model.risk_map_resolution,0:cityEnvironment.density_matrix.shape[1]:model.risk_map_resolution]
+    # collective_risk = np.multiply(model.risk_map_individual, Population_map)
+    # return sum(sum(collective_risk))*10000*(3.8*4.6)/(749*909)# *10000 because we set population 10000 times lower in loadEnvironment.py
+    # return sum(sum(collective_risk))*10000*(3.8*4.6)/(model.width_risk*model.height_risk)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="github_version.helpers.metrics.NNI_below_1"><code class="name flex">
+<span>def <span class="ident">NNI_below_1</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_1(model):
+    return model.NNI_below_1</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.NNI_below_2"><code class="name flex">
+<span>def <span class="ident">NNI_below_2</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_2(model):
+    return model.NNI_below_2</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.NNI_below_3"><code class="name flex">
+<span>def <span class="ident">NNI_below_3</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_3(model):
+    return model.NNI_below_3</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.NNI_below_4"><code class="name flex">
+<span>def <span class="ident">NNI_below_4</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_4(model):
+    return model.NNI_below_4</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.NNI_below_5"><code class="name flex">
+<span>def <span class="ident">NNI_below_5</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_5(model):
+    return model.NNI_below_5</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.NNI_below_6"><code class="name flex">
+<span>def <span class="ident">NNI_below_6</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NNI_below_6(model):
+    return model.NNI_below_6</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.area_risk_grid_m"><code class="name flex">
+<span>def <span class="ident">area_risk_grid_m</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_risk_grid_m(model):
+    return model.area_risk_grid_m</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_1"><code class="name flex">
+<span>def <span class="ident">below_1</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_1(model):
+    return model.v_below_1</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_2"><code class="name flex">
+<span>def <span class="ident">below_2</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_2(model):
+    return model.v_below_2</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_3"><code class="name flex">
+<span>def <span class="ident">below_3</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_3(model):
+    return model.v_below_3</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_4"><code class="name flex">
+<span>def <span class="ident">below_4</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_4(model):
+    return model.v_below_4</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_5"><code class="name flex">
+<span>def <span class="ident">below_5</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_5(model):
+    return model.v_below_5</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.below_6"><code class="name flex">
+<span>def <span class="ident">below_6</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def below_6(model):
+    return model.v_below_6</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_avg_E_on_impact"><code class="name flex">
+<span>def <span class="ident">compute_avg_E_on_impact</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_avg_E_on_impact(model):
+    return [model.Eimp]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_avg_distance_to_impact"><code class="name flex">
+<span>def <span class="ident">compute_avg_distance_to_impact</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_avg_distance_to_impact(model):
+    return [model.crash_dist]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_collective_risk"><code class="name flex">
+<span>def <span class="ident">compute_collective_risk</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_collective_risk(model):
+    return model.collective_risk</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_collective_risk_climb_descend"><code class="name flex">
+<span>def <span class="ident">compute_collective_risk_climb_descend</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_collective_risk_climb_descend(model):
+    return model.collective_risk_climb_descend</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_collective_risk_cruise"><code class="name flex">
+<span>def <span class="ident">compute_collective_risk_cruise</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_collective_risk_cruise(model):
+    return model.collective_risk_cruise</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_flown_dis"><code class="name flex">
+<span>def <span class="ident">compute_flown_dis</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_flown_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    flown_dis = [a.flown_dis_total_completed for a in drone_agents]
+    return sum(flown_dis)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_flown_time_incl_unfinished"><code class="name flex">
+<span>def <span class="ident">compute_flown_time_incl_unfinished</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_flown_time_incl_unfinished(model):
+    # Only includes finished routes
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    flown_time_incl_unfinished = [a.total_flown_time_incl_unfinished for a in drone_agents]
+    return sum(flown_time_incl_unfinished)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_hover_time"><code class="name flex">
+<span>def <span class="ident">compute_hover_time</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_hover_time(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    hover_time = [a.hover_time for a in drone_agents]
+    return sum(hover_time)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_individual_risk_map"><code class="name flex">
+<span>def <span class="ident">compute_individual_risk_map</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_individual_risk_map(model):
+    return [model.risk_map_individual]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_optimal_dis"><code class="name flex">
+<span>def <span class="ident">compute_optimal_dis</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_optimal_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    optimal_dis = [a.optimal_dis_total_completed for a in drone_agents]
+    return sum(optimal_dis)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_planned_dis"><code class="name flex">
+<span>def <span class="ident">compute_planned_dis</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_planned_dis(model):
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    planned_dis = [a.planned_dis_total_completed for a in drone_agents]
+    return sum(planned_dis)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_time_climb_descent"><code class="name flex">
+<span>def <span class="ident">compute_time_climb_descent</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_time_climb_descent(model):
+    return model.time_climb_descent</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_time_cruise"><code class="name flex">
+<span>def <span class="ident">compute_time_cruise</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_time_cruise(model):
+    return model.time_cruise</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_time_in_shelter_category"><code class="name flex">
+<span>def <span class="ident">compute_time_in_shelter_category</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_time_in_shelter_category(model):
+    return model.flight_time_shelter_category</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_time_takeoff_landing"><code class="name flex">
+<span>def <span class="ident">compute_time_takeoff_landing</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_time_takeoff_landing(model):
+    return model.time_takeoff_landing</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_time_waiting"><code class="name flex">
+<span>def <span class="ident">compute_time_waiting</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_time_waiting(model):
+    return model.time_waiting</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_total_deliveries"><code class="name flex">
+<span>def <span class="ident">compute_total_deliveries</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_total_deliveries(model):
+    return model.total_deliveries</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_total_demand"><code class="name flex">
+<span>def <span class="ident">compute_total_demand</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_total_demand(model):
+    return model.total_demand</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_total_flown_time"><code class="name flex">
+<span>def <span class="ident">compute_total_flown_time</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_total_flown_time(model):
+    # Only includes finished routes
+    drone_agents = []
+    for agent in model.schedule.agents:
+        if type(agent) is DroneAgent:
+            drone_agents.append(agent)
+    total_flown_time = [a.total_flown_time for a in drone_agents]
+    return sum(total_flown_time)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.compute_total_pickups"><code class="name flex">
+<span>def <span class="ident">compute_total_pickups</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_total_pickups(model):
+    return model.total_pickups</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.crash_in_quantile"><code class="name flex">
+<span>def <span class="ident">crash_in_quantile</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def crash_in_quantile(model):
+    return [model.crash_in_quantile]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.density_matrix_scaled_risk"><code class="name flex">
+<span>def <span class="ident">density_matrix_scaled_risk</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def density_matrix_scaled_risk(model):
+    return [model.shelter_map_scaled]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.env_avg_risk"><code class="name flex">
+<span>def <span class="ident">env_avg_risk</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def env_avg_risk(model):
+    return model.env_avg_risk</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.env_avg_risk_delivery_points"><code class="name flex">
+<span>def <span class="ident">env_avg_risk_delivery_points</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def env_avg_risk_delivery_points(model):
+    return np.mean(model.env_values_around_delivery_points)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.env_avg_risk_hubs"><code class="name flex">
+<span>def <span class="ident">env_avg_risk_hubs</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def env_avg_risk_hubs(model):
+    return np.mean(model.env_values_around_hub)</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.hubpos"><code class="name flex">
+<span>def <span class="ident">hubpos</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hubpos(model):
+    return [model.hubloc]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.modify_alpha"><code class="name flex">
+<span>def <span class="ident">modify_alpha</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_alpha(model):
+    return model.modify_alpha</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.modify_beta"><code class="name flex">
+<span>def <span class="ident">modify_beta</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_beta(model):
+    return model.modify_beta</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.modify_mass"><code class="name flex">
+<span>def <span class="ident">modify_mass</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_mass(model):
+    return model.modify_mass</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.modify_shelter"><code class="name flex">
+<span>def <span class="ident">modify_shelter</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_shelter(model):
+    return model.modify_shelter</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.other_grid"><code class="name flex">
+<span>def <span class="ident">other_grid</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def other_grid(model):
+    return model.other_grid</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.position_heatmap"><code class="name flex">
+<span>def <span class="ident">position_heatmap</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def position_heatmap(model):
+    return [model.position_heatmap]</code></pre>
+</details>
+</dd>
+<dt id="github_version.helpers.metrics.same_grid"><code class="name flex">
+<span>def <span class="ident">same_grid</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def same_grid(model):
+    return model.same_grid</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="github_version.helpers" href="index.html">github_version.helpers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="github_version.helpers.metrics.NNI_below_1" href="#github_version.helpers.metrics.NNI_below_1">NNI_below_1</a></code></li>
+<li><code><a title="github_version.helpers.metrics.NNI_below_2" href="#github_version.helpers.metrics.NNI_below_2">NNI_below_2</a></code></li>
+<li><code><a title="github_version.helpers.metrics.NNI_below_3" href="#github_version.helpers.metrics.NNI_below_3">NNI_below_3</a></code></li>
+<li><code><a title="github_version.helpers.metrics.NNI_below_4" href="#github_version.helpers.metrics.NNI_below_4">NNI_below_4</a></code></li>
+<li><code><a title="github_version.helpers.metrics.NNI_below_5" href="#github_version.helpers.metrics.NNI_below_5">NNI_below_5</a></code></li>
+<li><code><a title="github_version.helpers.metrics.NNI_below_6" href="#github_version.helpers.metrics.NNI_below_6">NNI_below_6</a></code></li>
+<li><code><a title="github_version.helpers.metrics.area_risk_grid_m" href="#github_version.helpers.metrics.area_risk_grid_m">area_risk_grid_m</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_1" href="#github_version.helpers.metrics.below_1">below_1</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_2" href="#github_version.helpers.metrics.below_2">below_2</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_3" href="#github_version.helpers.metrics.below_3">below_3</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_4" href="#github_version.helpers.metrics.below_4">below_4</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_5" href="#github_version.helpers.metrics.below_5">below_5</a></code></li>
+<li><code><a title="github_version.helpers.metrics.below_6" href="#github_version.helpers.metrics.below_6">below_6</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_avg_E_on_impact" href="#github_version.helpers.metrics.compute_avg_E_on_impact">compute_avg_E_on_impact</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_avg_distance_to_impact" href="#github_version.helpers.metrics.compute_avg_distance_to_impact">compute_avg_distance_to_impact</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_collective_risk" href="#github_version.helpers.metrics.compute_collective_risk">compute_collective_risk</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_collective_risk_climb_descend" href="#github_version.helpers.metrics.compute_collective_risk_climb_descend">compute_collective_risk_climb_descend</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_collective_risk_cruise" href="#github_version.helpers.metrics.compute_collective_risk_cruise">compute_collective_risk_cruise</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_flown_dis" href="#github_version.helpers.metrics.compute_flown_dis">compute_flown_dis</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_flown_time_incl_unfinished" href="#github_version.helpers.metrics.compute_flown_time_incl_unfinished">compute_flown_time_incl_unfinished</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_hover_time" href="#github_version.helpers.metrics.compute_hover_time">compute_hover_time</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_individual_risk_map" href="#github_version.helpers.metrics.compute_individual_risk_map">compute_individual_risk_map</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_optimal_dis" href="#github_version.helpers.metrics.compute_optimal_dis">compute_optimal_dis</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_planned_dis" href="#github_version.helpers.metrics.compute_planned_dis">compute_planned_dis</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_time_climb_descent" href="#github_version.helpers.metrics.compute_time_climb_descent">compute_time_climb_descent</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_time_cruise" href="#github_version.helpers.metrics.compute_time_cruise">compute_time_cruise</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_time_in_shelter_category" href="#github_version.helpers.metrics.compute_time_in_shelter_category">compute_time_in_shelter_category</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_time_takeoff_landing" href="#github_version.helpers.metrics.compute_time_takeoff_landing">compute_time_takeoff_landing</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_time_waiting" href="#github_version.helpers.metrics.compute_time_waiting">compute_time_waiting</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_total_deliveries" href="#github_version.helpers.metrics.compute_total_deliveries">compute_total_deliveries</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_total_demand" href="#github_version.helpers.metrics.compute_total_demand">compute_total_demand</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_total_flown_time" href="#github_version.helpers.metrics.compute_total_flown_time">compute_total_flown_time</a></code></li>
+<li><code><a title="github_version.helpers.metrics.compute_total_pickups" href="#github_version.helpers.metrics.compute_total_pickups">compute_total_pickups</a></code></li>
+<li><code><a title="github_version.helpers.metrics.crash_in_quantile" href="#github_version.helpers.metrics.crash_in_quantile">crash_in_quantile</a></code></li>
+<li><code><a title="github_version.helpers.metrics.density_matrix_scaled_risk" href="#github_version.helpers.metrics.density_matrix_scaled_risk">density_matrix_scaled_risk</a></code></li>
+<li><code><a title="github_version.helpers.metrics.env_avg_risk" href="#github_version.helpers.metrics.env_avg_risk">env_avg_risk</a></code></li>
+<li><code><a title="github_version.helpers.metrics.env_avg_risk_delivery_points" href="#github_version.helpers.metrics.env_avg_risk_delivery_points">env_avg_risk_delivery_points</a></code></li>
+<li><code><a title="github_version.helpers.metrics.env_avg_risk_hubs" href="#github_version.helpers.metrics.env_avg_risk_hubs">env_avg_risk_hubs</a></code></li>
+<li><code><a title="github_version.helpers.metrics.hubpos" href="#github_version.helpers.metrics.hubpos">hubpos</a></code></li>
+<li><code><a title="github_version.helpers.metrics.modify_alpha" href="#github_version.helpers.metrics.modify_alpha">modify_alpha</a></code></li>
+<li><code><a title="github_version.helpers.metrics.modify_beta" href="#github_version.helpers.metrics.modify_beta">modify_beta</a></code></li>
+<li><code><a title="github_version.helpers.metrics.modify_mass" href="#github_version.helpers.metrics.modify_mass">modify_mass</a></code></li>
+<li><code><a title="github_version.helpers.metrics.modify_shelter" href="#github_version.helpers.metrics.modify_shelter">modify_shelter</a></code></li>
+<li><code><a title="github_version.helpers.metrics.other_grid" href="#github_version.helpers.metrics.other_grid">other_grid</a></code></li>
+<li><code><a title="github_version.helpers.metrics.position_heatmap" href="#github_version.helpers.metrics.position_heatmap">position_heatmap</a></code></li>
+<li><code><a title="github_version.helpers.metrics.same_grid" href="#github_version.helpers.metrics.same_grid">same_grid</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

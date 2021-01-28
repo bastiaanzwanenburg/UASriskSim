@@ -1,0 +1,11 @@
+Paris population density
+
+
+Dark-red = > 50,000 per km^2 #8E1D18 (142, 29, 24)
+Red = 25,000 - 50,000 per km^2 #C5322D (197, 50, 45)
+Orange = 10,000-25,000 per km^2 #DD6449 (221, 100, 73)
+Semi-orange = 5,000 - 10,000 per km^2 #DF8C70 (223, 140, 112)
+Light-orange = 2,500 - 5,000 per km^2 N.A.
+White = <2,500 per km^2 #CED4D5 (206, 212, 213)
+
+Blue = river #5F90B4 (95, 144, 180)

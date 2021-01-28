@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>github_version.agents.drone_agent API documentation</title>
+<meta name="description" content="The most important agent of the model is the DroneAgent. This file specifies it." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>github_version.agents.drone_agent</code></h1>
+</header>
+<section id="section-intro">
+<p>The most important agent of the model is the DroneAgent. This file specifies it.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+The most important agent of the model is the DroneAgent. This file specifies it.
+&#39;&#39;&#39;
+
+import math
+# import random
+from math import *
+
+import numpy as np
+import portalocker
+from mesa import Agent
+from warnings import warn
+
+import os
+import pickle
+
+
+from agents.agents import HubAgent, DeliveryPointAgent
+from agents.droneAgentHelpers.calculate_risk import CalculateRisk
+from agents.droneAgentHelpers.findAStarPath import find_a_star_path
+
+class DroneAgent(Agent):
+
+    # Initialize parameters for drone
+    def __init__(self, unique_id, model, hub_pos, deliver_pos):
+
+        &#39;&#39;&#39;
+        Args:
+            unique_id: Unique agent identifyer.
+            pos: Position (in grid) of the drone
+            pos_m: Position in meters of the drone
+            altitude: Starting altitude
+            state: to_customer or back_hub or waiting
+            v_horizontal: Distance (meter) to move per step.
+            hub_pos: position where the hub of the drone is
+            deliver_pos: position where the drone to deliver to
+            waypoints: the waypoints on the path to follow
+            target: postion to move towards
+
+            path: the remained waypoints on the path to follow (exclude waypoints flown)
+            optimal_dis: the shortest dis to target
+            planned_dis: the distance flown and to fly in the flight plan
+            flown_dis: the distance flown by the drone
+        &#39;&#39;&#39;
+        super().__init__(unique_id, model)
+
+        self.pos = hub_pos  # Position (in grid) of the drone
+        self.pos_m = (
+            hub_pos[0] * self.model.grid_size_m_x,  # Position (in meter) of the drone
+            hub_pos[1] * self.model.grid_size_m_y)
+
+        # Vehicle parameters
+        self.cruise_altitude = self.model.cruise_altitude  # Starting altitude
+        self.vertical_speed = 5  # m/s
+        self.current_altitude = 0
+        self.cruise_speed = 10  # Drone v_horizontal = 20m/s
+        self.mass = 9 * self.model.mass_correction_factor
+        self.frontal_area = 0.04 # A_d of the drone [m^2]
+        self.collective_risk_temp = 0
+        self.collective_risk_temp_climb_descent = 0
+        self.collective_risk_temp_cruise = 0
+
+        self.v_horizontal = 0
+        self.v_vertical = 0
+
+        self.m_route = []
+        self.m_target_route = []
+
+        self.heading = (0, 0)  # Heading of the drone
+        self.hub_pos = hub_pos  # position where the hub of the drone is
+        self.deliver_pos = deliver_pos  # position where the drone to deliver to
+        self.target = None  # postion to move towards
+        self.state = &#39;waiting&#39;
+        self.hover = False
+        # self.state = &#39;to_customer&#39;
+        self.package = True
+        self.flight_plan = []
+        self.path = []
+
+        self.planned_path = []
+        self.flown_path = []
+
+        if self.cruise_speed &gt; self.model.grid_size_m_x or self.cruise_speed &gt; self.model.grid_size_m_y:
+            print(&#34;speed: {}, grid_x = {}, grid_y = {}&#34;.format(self.cruise_speed, self.model.grid_size_m_x,
+                                                               self.model.grid_size_m_y))
+            raise Exception(&#34;Speed larger than grid-size, this leads to issues!&#34;)
+
+        # Risk initialization
+        self.max_risk_iterations = self.model.max_risk_iterations
+        self.risk_path_individual = np.zeros((self.model.width_risk, self.model.height_risk))
+        self.risk_path_collective = np.zeros((self.model.width_risk, self.model.height_risk))  # not uesed yet
+        if self.model.seed != None:
+            np.random.seed(self.model.seed)
+
+        # Metrics
+        self.total_flown_time_test = 0
+        self.total_flown_time = 0
+
+        self.optimal_dis_total_completed = 0  # Optimal distance of all completed flights
+        self.planned_dis_total_completed = 0  # Planned distance of all completed flights
+        self.flown_dis_total_completed = 0  # Flown distance of all completed flights
+
+        self.optimal_dis_current = 0
+        self.planned_dis_current = 0
+        self.flown_dis_current = 0
+
+        self.optimal_dis_total = 0  # Optimal distance of all flights (including unfinished flights)
+        self.planned_dis_total = 0  # Planned distance of all flights (including unfinished flights)
+        self.flown_dis_total = 0  # Flown distance of all flights (including unfinished flights)
+
+        self.flown_time_current = 0
+        self.total_flown_time_incl_unfinished = 0
+        self.hover_time = 0
+        self.impact_position = (0, 0)
+
+    &#39;&#39;&#39;Behaviour of drone for each steps: the drone will wait in the hub until receiving order, and start from hub to deliver point and then come back to (the same) hub.&#39;&#39;&#39;
+
+    def step(self):
+        # The following lines are purely for logging what is going on
+        if self.state == &#39;waiting&#39;:
+            self.model.time_waiting += 1
+        elif self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+            # Log where the drone is flying
+            current_category = self.model.shelter_category_scaled[self.pos]
+            self.model.flight_time_shelter_category[current_category] += 1
+
+            # Log time spent in cruise / takeoff / climb/descend
+            if self.current_altitude == self.cruise_altitude:
+                self.model.time_cruise += 1
+            elif self.current_altitude == 0 and self.pos == self.target:
+                self.model.time_takeoff_landing += 1
+            else:
+                self.model.time_climb_descent += 1
+        else:
+            raise Exception(&#34;Drone is in unknown state&#34;)
+
+        # Calculate the risk of this step
+        if self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+            if self.current_altitude &gt; 0:
+                # When the altitude = 0, there is no risk, hence the &gt; 0
+                CalculateRisk(self, planning=False)
+
+            # The drone can not move horizontally and vertically at the same time, verify what is going wrong
+
+            if self.v_horizontal == self.cruise_speed is abs(self.v_vertical) == self.vertical_speed:
+                raise Exception(&#34;We have both horizontal and vertical v_horizontal. That&#39;s not possible!&#34;)
+
+        elif self.state == &#39;waiting&#39;:
+            if self.v_horizontal != 0 or self.v_vertical != 0:
+                # Speed must be 0 while waiting, verify this
+                raise Exception(&#34;Non-zero v_horizontal while waiting...&#34;)
+
+        # If going to a customer, go through all steps required to ultimately deliver a package.
+        if self.state == &#39;to_customer&#39;:
+            # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+            if (self.pos != self.target) and len(self.flight_plan) == 0:
+                self.start_new_mission()
+
+            # Check if the drone is at the altitude it should be. If that&#39;s the case, the drone can move, otherwise,
+            # the climb_and_descend-method makes sure it travels in the direction of the desired altitude
+            is_at_target_altitude = self.climb_and_descent()
+
+            if is_at_target_altitude:
+                self.v_horizontal = self.cruise_speed
+
+                # If the drone is at the target of the mission, deliver the package. Otherwise, move.
+                if self.pos == self.target:
+                    self.arrival_sequence()
+                    self.DeliverPackage()
+                    self.state = &#39;back_hub&#39;
+                    self.target = self.hub_pos
+                else:
+                    self.move()
+            else:
+                self.v_horizontal = 0
+                # self.model.time_climb_descent += 1
+
+        # If the goal is to go back to the hub, go through all steps required to do so.
+        elif self.state == &#39;back_hub&#39;:
+            self.target = self.hub_pos
+            # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+            if (self.pos != self.target) and len(self.flight_plan) == 0:
+                self.start_new_mission()
+
+            is_at_target_altitude = self.climb_and_descent()
+
+            if is_at_target_altitude:
+                self.v_horizontal = self.cruise_speed
+                if self.pos == self.target:
+                    if self.flight_phase != &#34;arrived&#34;:
+                        raise Exception(&#34;Flight phases are not correct&#34;)
+                    self.arrival_sequence()
+                    self.state = &#39;waiting&#39;
+                else:
+                    self.move()
+            else:
+                self.v_horizontal = 0
+
+        elif self.state == &#34;waiting&#34;:
+            # The drone can only be waiting at the hub. Check if this is the case.
+            cellmates = self.model.grid.get_cell_list_contents([self.pos])
+            if not cellmates or not any(isinstance(x, HubAgent) for x in cellmates):
+                raise Exception(&#34;ERROR, DRONE IS WAITING SOMEWHERE WITHOUT CELLMATES / NO HUB AS CELLMATE&#34;)
+
+            # The following code makes sure the drone is assigned an package.
+            for cellmate in cellmates:
+                if type(cellmate) is HubAgent:
+                    # Check if the hub has outstanding orders. If so, pick up the task.
+                    if cellmate.orders &gt; 0:
+                        if not cellmate.unlimited_demand:
+                            cellmate.orders -= 1
+                        self.state = &#34;to_customer&#34;
+                        self.model.total_pickups += 1
+                        self.target = self.random.choice(self.deliver_pos)
+                        # Break the execution of the for-loop. This isn&#39;t strictly necessary, as there can&#39;t be more 
+                        # than 1 hub at each grid-location. However, it prevents the need of looping through all 
+                        # other cellmates, which speeds things up a bit. 
+                        break
+
+    def arrival_sequence(self):
+        &#39;&#39;&#39;Method for the arrival sequence. Primary objective is to store statistics of the past flight.&#39;&#39;&#39;
+        self.flight_plan.clear()
+
+        self.model.risk_map_individual += self.risk_path_individual
+        self.model.collective_risk += self.collective_risk_temp
+        self.model.collective_risk_cruise += self.collective_risk_temp_cruise
+        self.model.collective_risk_climb_descend += self.collective_risk_temp_climb_descent
+
+        self.collective_risk_temp = 0
+        self.collective_risk_temp_cruise = 0
+        self.collective_risk_temp_climb_descent = 0
+
+        self.risk_path_individual = np.zeros((self.model.width_risk, self.model.height_risk))
+
+        self.v_horizontal = 0
+        self.v_vertical = 0
+
+        self.total_flown_time = self.total_flown_time_incl_unfinished
+        self.total_flown_time_test += self.flown_time_current
+
+        self.flown_dis_total_completed += self.flown_dis_current
+        self.optimal_dis_total_completed += self.optimal_dis_current
+        self.planned_dis_total_completed += self.planned_dis_current
+        #
+        self.flown_dis_current = 0
+        self.optimal_dis_current = 0
+        self.planned_dis_current = 0
+        self.flown_time_current = 0
+
+    def start_new_mission(self):
+        &#39;&#39;&#39;Whenever a drone gets a new task, this method is triggered. Amongst others, it finds a flight-plan and calculates some statistics.&#39;&#39;&#39;
+        self.flight_plan = find_a_star_path(self, self.pos, self.target, self.model.risk_optimal)
+        # print(&#34;Flight to {} via {}&#34;.format(self.target, self.flight_plan))
+
+        # Calculate flying distance in flight plan
+        planned_dis_this_flight = 0
+        for i in range(0, len(self.flight_plan) - 1):
+            planned_dis_this_flight += (
+
+                pow(pow(self.model.grid_size_m_x * (self.flight_plan[i][0] - self.flight_plan[i + 1][0]), 2) +
+                    pow(self.model.grid_size_m_y * (self.flight_plan[i][1] - self.flight_plan[i + 1][1]), 2),
+                    0.5))
+
+        self.flight_plan.pop(0)  # remove the first one, which is the current pos
+
+        self.planned_dis_total += planned_dis_this_flight
+        self.planned_dis_current += planned_dis_this_flight
+        # self.planned_dis += planned_dis Do this after a flight!
+        optimal_dis_this_flight = (
+            pow(pow(self.model.grid_size_m_x * (self.flight_plan[-1][0] - self.flight_plan[0][0]), 2) +
+                pow(self.model.grid_size_m_y * (self.flight_plan[-1][1] - self.flight_plan[0][1]), 2),
+                0.5))
+        self.optimal_dis_total += optimal_dis_this_flight
+        self.optimal_dis_current += optimal_dis_this_flight
+
+        if optimal_dis_this_flight &gt; 1.001 * planned_dis_this_flight:
+            # added 1.001 for rounding errors in straight paths.
+            raise Exception(&#34;Optimal distance longer than planned distance&#34;)
+
+    def detect_collissions(self):
+        &#34;&#34;&#34;
+        A simple implementation of CD&amp;R was implemented. However, it was decided to not use this the thesis.
+        It returns True if the drone is in conflict, otherwise, it returns False
+        @rtype: Boolean
+        &#34;&#34;&#34;
+        #
+
+        if self.model.conflictdetection == False:
+            return False
+
+        surroundings = self.model.grid.get_neighborhood(
+            self.pos,
+            moore=True,
+            include_center=False, radius=1)
+        collission_detected = False
+
+        for i in surroundings:  # trying to remove obstacle agents from possibilities, this doesnt work yet
+            content = self.model.grid.get_cell_list_contents(i)
+            for j in content:
+                # Check if there is another agent that is a drone
+                if type(j) is DroneAgent:
+                    if j.state == &#39;back_hub&#39; or j.state == &#39;to_customer&#39;:
+                        if not j.hover:
+                            # print(&#39;collission detected&#39;)
+                            return True
+        return collission_detected
+
+    def climb_and_descent(self):
+        &#34;&#34;&#34;
+        This function handles the climbing &amp; descend of drones. It checks whether the drone is at the altitude it should be. If yes, it returns True (signalling to the code that it can go on with the next step). Otherwise, it signals False
+        @rtype: Boolean
+        &#34;&#34;&#34;
+
+        if self.pos != self.target:
+            # If not at the target, we should climb, set climbing v_horizontal
+            if self.current_altitude &gt;= self.cruise_altitude:
+                if self.current_altitude &gt; self.cruise_altitude:
+                    print(&#34;Warning: flying {} meters above cruise altitude&#34;.format(
+                        self.current_altitude - self.cruise_altitude))
+                self.v_vertical = 0
+                self.flight_phase = &#34;cruise&#34;
+                return True
+
+            elif (self.current_altitude + self.vertical_speed) &gt;= self.cruise_altitude:
+                self.current_altitude = self.cruise_altitude
+                self.v_vertical = self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;climb&#34;
+                return False
+
+            else:
+                self.current_altitude += self.vertical_speed
+                self.v_vertical = self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;climb&#34;
+                return False
+
+        elif self.pos == self.target:
+            # If the drone can reach an altitude of 0 in this step, just fix it to 0
+            if self.current_altitude &lt;= 0:
+                if self.current_altitude &lt; 0:
+                    print(&#34;Warning: flying {} meters below destination altitude&#34;.format(
+                        self.current_altitude))
+                self.v_vertical = 0
+                self.flight_phase = &#34;arrived&#34;
+                return True
+
+            elif self.current_altitude &lt;= 0 + self.vertical_speed:
+                self.current_altitude = 0
+                self.v_vertical = -self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;descend&#34;
+                return False
+
+            else:
+                self.current_altitude -= self.vertical_speed
+                self.v_vertical = -self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;descend&#34;
+                return False
+
+
+    # Move forward, update dynamics
+    def move(self):
+        &#39;&#39;&#39;
+        Moves the drone both virtually (self.pos_m) and physically (self.pos) if needed.
+        @return: True if destination is reached
+        &#39;&#39;&#39;
+
+        # flown time count +1 and calculate risk
+
+        self.flown_time_current += 1
+        self.total_flown_time_incl_unfinished += 1
+
+        # Set path (list of waypoints) of the drone to fly
+        if len(self.path) == 0:
+            self.path = self.flight_plan[:]
+            self.planned_path = self.flight_plan[:]
+
+        self.findNextVirtualStep()
+
+        # check whether reached the next path waypoints (reached: distance within one step move (in meters))
+        if self.dis_to_target &gt; self.v_horizontal / 2:
+            self.moveVirtualStep()
+
+        else:
+            # Move drone to the next waypoint in grid. Check if there are any collissions.
+            if not self.detect_collissions():
+                self.hover = False # This code is a reminder of the CD&amp;R implementation, and not important for functioning of the current code.
+
+                # Move to next point on grid AND next point on virtual (m) grid
+                # NOTE: Because moves can also be diagonal, it is impossible to design the model in such a way that it always &#34;perfectly&#34; reaches the next point.
+
+                next_point = (int(round((self.pos_m[0] / self.model.grid_size_m_x), 0)),
+                              int(round((self.pos_m[1] / self.model.grid_size_m_y), 0)))
+
+                # Two verification steps to ensure the integrity of the move function.
+                if next_point != self.path[0]:
+                    raise Exception(&#34;Moving, but not to the next point in the path&#34;)
+
+                if self.pos == next_point:
+                    raise Exception(&#34;Trying to move a drone to the same point as it already is!&#34;)
+
+                # Move one step on the real grid
+                self.model.grid.move_agent(self, next_point)
+                self.model.position_heatmap[next_point] += 1
+                self.path.pop(0)
+
+                # Also move one step on the virtual grid.
+                if self.pos != self.target:
+                    self.findNextVirtualStep()
+                    self.moveVirtualStep()
+
+                # check if reached target
+                if len(self.path) == 0:
+                    return True
+            else:
+                self.hover = True
+                self.hover_time += 1
+
+    def findNextVirtualStep(self):
+        &#34;&#34;&#34;
+        Based on the goal of the next step, the drone moves one step on the virtual grid. This is done by storing some variables, which are then accessed in subsequent methods.
+        @rtype: None
+
+        &#34;&#34;&#34;
+        self.next_target = self.path[0]
+        self.next_target_m = (self.next_target[0] * self.model.grid_size_m_x,
+                              self.next_target[1] * self.model.grid_size_m_y)
+
+        # Calculate next position of drone after one step move (in meters)
+        self.diff_to_next_m_x = self.next_target_m[0] - self.pos_m[0]
+        self.diff_to_next_m_y = self.next_target_m[1] - self.pos_m[1]
+        self.dis_to_target = pow(pow(self.diff_to_next_m_x, 2) + pow(self.diff_to_next_m_y, 2), 0.5)
+
+    def moveVirtualStep(self):
+        &#39;&#39;&#39;
+        Given that self.dis_to_target and self.diff_to_next_m_x &amp;..y are set (that is done by findNextVirtualStep), it moves to the next virtual step
+        @return: None, but changes self.pos_m to the next virtual position
+        &#39;&#39;&#39;
+
+        # Calculate heading of drone
+        self.heading = (self.diff_to_next_m_x / self.dis_to_target,
+                        self.diff_to_next_m_y / self.dis_to_target)
+
+        # self.model.heading_list.append(self.heading)
+        # Calculate next position (in meters)
+
+        self.next_pos_m = (self.pos_m[0] + self.v_horizontal * self.heading[0],
+                           self.pos_m[1] + self.v_horizontal * self.heading[1])
+
+        self.m_route.append(self.next_pos_m)
+        self.m_target_route.append(self.next_target_m)
+
+        delta_distance = ((self.next_pos_m[0] - self.pos_m[0]) ** 2 + (
+                self.next_pos_m[1] - self.pos_m[1]) ** 2) ** 0.5
+
+        self.flown_dis_current += delta_distance
+
+        self.flown_dis_total += delta_distance
+
+        if abs(pow(pow(self.pos_m[0] - self.next_pos_m[0], 2) + pow(self.pos_m[1] - self.next_pos_m[1], 2),
+                   0.5) - self.v_horizontal) &lt; 0.01 * self.v_horizontal:
+            self.pos_m = self.next_pos_m
+            # self.
+        else:
+            raise Exception(&#34;Next step is not equal to distance&#34;)
+
+        # Calculate flown distance
+
+    # Deliver package at delivery point
+    def DeliverPackage(self):
+        &#39;&#39;&#39;
+        Triggered whenever a drone arrives at the end of the flight-plan, and delivers  pacakge.
+        @rtype: None
+        &#39;&#39;&#39;
+
+        # Tries to deliver a package
+        # If there&#39;s a delivery point in the same cell, deliver the package there.
+        cellmates = self.model.grid.get_cell_list_contents([self.pos])
+        if len(cellmates) &gt; 1:
+            for cellmate in cellmates:
+                if type(cellmate) is DeliveryPointAgent:
+                    # print(&#34;Delivered package&#34;)
+                    cellmate.deliveries += 1
+                    self.model.total_deliveries += 1
+                    self.package = False
+                    self.state = &#39;back_hub&#39;
+                    self.target = self.hub_pos
+        if self.package:
+            raise Exception(&#34;Delivering package failed&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="github_version.agents.drone_agent.DroneAgent"><code class="flex name class">
+<span>class <span class="ident">DroneAgent</span></span>
+<span>(</span><span>unique_id, model, hub_pos, deliver_pos)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for a model agent. </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>unique_id</code></strong></dt>
+<dd>Unique agent identifyer.</dd>
+<dt><strong><code>pos</code></strong></dt>
+<dd>Position (in grid) of the drone</dd>
+<dt><strong><code>pos_m</code></strong></dt>
+<dd>Position in meters of the drone</dd>
+<dt><strong><code>altitude</code></strong></dt>
+<dd>Starting altitude</dd>
+<dt><strong><code>state</code></strong></dt>
+<dd>to_customer or back_hub or waiting</dd>
+<dt><strong><code>v_horizontal</code></strong></dt>
+<dd>Distance (meter) to move per step.</dd>
+<dt><strong><code>hub_pos</code></strong></dt>
+<dd>position where the hub of the drone is</dd>
+<dt><strong><code>deliver_pos</code></strong></dt>
+<dd>position where the drone to deliver to</dd>
+<dt><strong><code>waypoints</code></strong></dt>
+<dd>the waypoints on the path to follow</dd>
+<dt><strong><code>target</code></strong></dt>
+<dd>postion to move towards</dd>
+<dt><strong><code>path</code></strong></dt>
+<dd>the remained waypoints on the path to follow (exclude waypoints flown)</dd>
+<dt><strong><code>optimal_dis</code></strong></dt>
+<dd>the shortest dis to target</dd>
+<dt><strong><code>planned_dis</code></strong></dt>
+<dd>the distance flown and to fly in the flight plan</dd>
+<dt><strong><code>flown_dis</code></strong></dt>
+<dd>the distance flown by the drone</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DroneAgent(Agent):
+
+    # Initialize parameters for drone
+    def __init__(self, unique_id, model, hub_pos, deliver_pos):
+
+        &#39;&#39;&#39;
+        Args:
+            unique_id: Unique agent identifyer.
+            pos: Position (in grid) of the drone
+            pos_m: Position in meters of the drone
+            altitude: Starting altitude
+            state: to_customer or back_hub or waiting
+            v_horizontal: Distance (meter) to move per step.
+            hub_pos: position where the hub of the drone is
+            deliver_pos: position where the drone to deliver to
+            waypoints: the waypoints on the path to follow
+            target: postion to move towards
+
+            path: the remained waypoints on the path to follow (exclude waypoints flown)
+            optimal_dis: the shortest dis to target
+            planned_dis: the distance flown and to fly in the flight plan
+            flown_dis: the distance flown by the drone
+        &#39;&#39;&#39;
+        super().__init__(unique_id, model)
+
+        self.pos = hub_pos  # Position (in grid) of the drone
+        self.pos_m = (
+            hub_pos[0] * self.model.grid_size_m_x,  # Position (in meter) of the drone
+            hub_pos[1] * self.model.grid_size_m_y)
+
+        # Vehicle parameters
+        self.cruise_altitude = self.model.cruise_altitude  # Starting altitude
+        self.vertical_speed = 5  # m/s
+        self.current_altitude = 0
+        self.cruise_speed = 10  # Drone v_horizontal = 20m/s
+        self.mass = 9 * self.model.mass_correction_factor
+        self.frontal_area = 0.04 # A_d of the drone [m^2]
+        self.collective_risk_temp = 0
+        self.collective_risk_temp_climb_descent = 0
+        self.collective_risk_temp_cruise = 0
+
+        self.v_horizontal = 0
+        self.v_vertical = 0
+
+        self.m_route = []
+        self.m_target_route = []
+
+        self.heading = (0, 0)  # Heading of the drone
+        self.hub_pos = hub_pos  # position where the hub of the drone is
+        self.deliver_pos = deliver_pos  # position where the drone to deliver to
+        self.target = None  # postion to move towards
+        self.state = &#39;waiting&#39;
+        self.hover = False
+        # self.state = &#39;to_customer&#39;
+        self.package = True
+        self.flight_plan = []
+        self.path = []
+
+        self.planned_path = []
+        self.flown_path = []
+
+        if self.cruise_speed &gt; self.model.grid_size_m_x or self.cruise_speed &gt; self.model.grid_size_m_y:
+            print(&#34;speed: {}, grid_x = {}, grid_y = {}&#34;.format(self.cruise_speed, self.model.grid_size_m_x,
+                                                               self.model.grid_size_m_y))
+            raise Exception(&#34;Speed larger than grid-size, this leads to issues!&#34;)
+
+        # Risk initialization
+        self.max_risk_iterations = self.model.max_risk_iterations
+        self.risk_path_individual = np.zeros((self.model.width_risk, self.model.height_risk))
+        self.risk_path_collective = np.zeros((self.model.width_risk, self.model.height_risk))  # not uesed yet
+        if self.model.seed != None:
+            np.random.seed(self.model.seed)
+
+        # Metrics
+        self.total_flown_time_test = 0
+        self.total_flown_time = 0
+
+        self.optimal_dis_total_completed = 0  # Optimal distance of all completed flights
+        self.planned_dis_total_completed = 0  # Planned distance of all completed flights
+        self.flown_dis_total_completed = 0  # Flown distance of all completed flights
+
+        self.optimal_dis_current = 0
+        self.planned_dis_current = 0
+        self.flown_dis_current = 0
+
+        self.optimal_dis_total = 0  # Optimal distance of all flights (including unfinished flights)
+        self.planned_dis_total = 0  # Planned distance of all flights (including unfinished flights)
+        self.flown_dis_total = 0  # Flown distance of all flights (including unfinished flights)
+
+        self.flown_time_current = 0
+        self.total_flown_time_incl_unfinished = 0
+        self.hover_time = 0
+        self.impact_position = (0, 0)
+
+    &#39;&#39;&#39;Behaviour of drone for each steps: the drone will wait in the hub until receiving order, and start from hub to deliver point and then come back to (the same) hub.&#39;&#39;&#39;
+
+    def step(self):
+        # The following lines are purely for logging what is going on
+        if self.state == &#39;waiting&#39;:
+            self.model.time_waiting += 1
+        elif self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+            # Log where the drone is flying
+            current_category = self.model.shelter_category_scaled[self.pos]
+            self.model.flight_time_shelter_category[current_category] += 1
+
+            # Log time spent in cruise / takeoff / climb/descend
+            if self.current_altitude == self.cruise_altitude:
+                self.model.time_cruise += 1
+            elif self.current_altitude == 0 and self.pos == self.target:
+                self.model.time_takeoff_landing += 1
+            else:
+                self.model.time_climb_descent += 1
+        else:
+            raise Exception(&#34;Drone is in unknown state&#34;)
+
+        # Calculate the risk of this step
+        if self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+            if self.current_altitude &gt; 0:
+                # When the altitude = 0, there is no risk, hence the &gt; 0
+                CalculateRisk(self, planning=False)
+
+            # The drone can not move horizontally and vertically at the same time, verify what is going wrong
+
+            if self.v_horizontal == self.cruise_speed is abs(self.v_vertical) == self.vertical_speed:
+                raise Exception(&#34;We have both horizontal and vertical v_horizontal. That&#39;s not possible!&#34;)
+
+        elif self.state == &#39;waiting&#39;:
+            if self.v_horizontal != 0 or self.v_vertical != 0:
+                # Speed must be 0 while waiting, verify this
+                raise Exception(&#34;Non-zero v_horizontal while waiting...&#34;)
+
+        # If going to a customer, go through all steps required to ultimately deliver a package.
+        if self.state == &#39;to_customer&#39;:
+            # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+            if (self.pos != self.target) and len(self.flight_plan) == 0:
+                self.start_new_mission()
+
+            # Check if the drone is at the altitude it should be. If that&#39;s the case, the drone can move, otherwise,
+            # the climb_and_descend-method makes sure it travels in the direction of the desired altitude
+            is_at_target_altitude = self.climb_and_descent()
+
+            if is_at_target_altitude:
+                self.v_horizontal = self.cruise_speed
+
+                # If the drone is at the target of the mission, deliver the package. Otherwise, move.
+                if self.pos == self.target:
+                    self.arrival_sequence()
+                    self.DeliverPackage()
+                    self.state = &#39;back_hub&#39;
+                    self.target = self.hub_pos
+                else:
+                    self.move()
+            else:
+                self.v_horizontal = 0
+                # self.model.time_climb_descent += 1
+
+        # If the goal is to go back to the hub, go through all steps required to do so.
+        elif self.state == &#39;back_hub&#39;:
+            self.target = self.hub_pos
+            # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+            if (self.pos != self.target) and len(self.flight_plan) == 0:
+                self.start_new_mission()
+
+            is_at_target_altitude = self.climb_and_descent()
+
+            if is_at_target_altitude:
+                self.v_horizontal = self.cruise_speed
+                if self.pos == self.target:
+                    if self.flight_phase != &#34;arrived&#34;:
+                        raise Exception(&#34;Flight phases are not correct&#34;)
+                    self.arrival_sequence()
+                    self.state = &#39;waiting&#39;
+                else:
+                    self.move()
+            else:
+                self.v_horizontal = 0
+
+        elif self.state == &#34;waiting&#34;:
+            # The drone can only be waiting at the hub. Check if this is the case.
+            cellmates = self.model.grid.get_cell_list_contents([self.pos])
+            if not cellmates or not any(isinstance(x, HubAgent) for x in cellmates):
+                raise Exception(&#34;ERROR, DRONE IS WAITING SOMEWHERE WITHOUT CELLMATES / NO HUB AS CELLMATE&#34;)
+
+            # The following code makes sure the drone is assigned an package.
+            for cellmate in cellmates:
+                if type(cellmate) is HubAgent:
+                    # Check if the hub has outstanding orders. If so, pick up the task.
+                    if cellmate.orders &gt; 0:
+                        if not cellmate.unlimited_demand:
+                            cellmate.orders -= 1
+                        self.state = &#34;to_customer&#34;
+                        self.model.total_pickups += 1
+                        self.target = self.random.choice(self.deliver_pos)
+                        # Break the execution of the for-loop. This isn&#39;t strictly necessary, as there can&#39;t be more 
+                        # than 1 hub at each grid-location. However, it prevents the need of looping through all 
+                        # other cellmates, which speeds things up a bit. 
+                        break
+
+    def arrival_sequence(self):
+        &#39;&#39;&#39;Method for the arrival sequence. Primary objective is to store statistics of the past flight.&#39;&#39;&#39;
+        self.flight_plan.clear()
+
+        self.model.risk_map_individual += self.risk_path_individual
+        self.model.collective_risk += self.collective_risk_temp
+        self.model.collective_risk_cruise += self.collective_risk_temp_cruise
+        self.model.collective_risk_climb_descend += self.collective_risk_temp_climb_descent
+
+        self.collective_risk_temp = 0
+        self.collective_risk_temp_cruise = 0
+        self.collective_risk_temp_climb_descent = 0
+
+        self.risk_path_individual = np.zeros((self.model.width_risk, self.model.height_risk))
+
+        self.v_horizontal = 0
+        self.v_vertical = 0
+
+        self.total_flown_time = self.total_flown_time_incl_unfinished
+        self.total_flown_time_test += self.flown_time_current
+
+        self.flown_dis_total_completed += self.flown_dis_current
+        self.optimal_dis_total_completed += self.optimal_dis_current
+        self.planned_dis_total_completed += self.planned_dis_current
+        #
+        self.flown_dis_current = 0
+        self.optimal_dis_current = 0
+        self.planned_dis_current = 0
+        self.flown_time_current = 0
+
+    def start_new_mission(self):
+        &#39;&#39;&#39;Whenever a drone gets a new task, this method is triggered. Amongst others, it finds a flight-plan and calculates some statistics.&#39;&#39;&#39;
+        self.flight_plan = find_a_star_path(self, self.pos, self.target, self.model.risk_optimal)
+        # print(&#34;Flight to {} via {}&#34;.format(self.target, self.flight_plan))
+
+        # Calculate flying distance in flight plan
+        planned_dis_this_flight = 0
+        for i in range(0, len(self.flight_plan) - 1):
+            planned_dis_this_flight += (
+
+                pow(pow(self.model.grid_size_m_x * (self.flight_plan[i][0] - self.flight_plan[i + 1][0]), 2) +
+                    pow(self.model.grid_size_m_y * (self.flight_plan[i][1] - self.flight_plan[i + 1][1]), 2),
+                    0.5))
+
+        self.flight_plan.pop(0)  # remove the first one, which is the current pos
+
+        self.planned_dis_total += planned_dis_this_flight
+        self.planned_dis_current += planned_dis_this_flight
+        # self.planned_dis += planned_dis Do this after a flight!
+        optimal_dis_this_flight = (
+            pow(pow(self.model.grid_size_m_x * (self.flight_plan[-1][0] - self.flight_plan[0][0]), 2) +
+                pow(self.model.grid_size_m_y * (self.flight_plan[-1][1] - self.flight_plan[0][1]), 2),
+                0.5))
+        self.optimal_dis_total += optimal_dis_this_flight
+        self.optimal_dis_current += optimal_dis_this_flight
+
+        if optimal_dis_this_flight &gt; 1.001 * planned_dis_this_flight:
+            # added 1.001 for rounding errors in straight paths.
+            raise Exception(&#34;Optimal distance longer than planned distance&#34;)
+
+    def detect_collissions(self):
+        &#34;&#34;&#34;
+        A simple implementation of CD&amp;R was implemented. However, it was decided to not use this the thesis.
+        It returns True if the drone is in conflict, otherwise, it returns False
+        @rtype: Boolean
+        &#34;&#34;&#34;
+        #
+
+        if self.model.conflictdetection == False:
+            return False
+
+        surroundings = self.model.grid.get_neighborhood(
+            self.pos,
+            moore=True,
+            include_center=False, radius=1)
+        collission_detected = False
+
+        for i in surroundings:  # trying to remove obstacle agents from possibilities, this doesnt work yet
+            content = self.model.grid.get_cell_list_contents(i)
+            for j in content:
+                # Check if there is another agent that is a drone
+                if type(j) is DroneAgent:
+                    if j.state == &#39;back_hub&#39; or j.state == &#39;to_customer&#39;:
+                        if not j.hover:
+                            # print(&#39;collission detected&#39;)
+                            return True
+        return collission_detected
+
+    def climb_and_descent(self):
+        &#34;&#34;&#34;
+        This function handles the climbing &amp; descend of drones. It checks whether the drone is at the altitude it should be. If yes, it returns True (signalling to the code that it can go on with the next step). Otherwise, it signals False
+        @rtype: Boolean
+        &#34;&#34;&#34;
+
+        if self.pos != self.target:
+            # If not at the target, we should climb, set climbing v_horizontal
+            if self.current_altitude &gt;= self.cruise_altitude:
+                if self.current_altitude &gt; self.cruise_altitude:
+                    print(&#34;Warning: flying {} meters above cruise altitude&#34;.format(
+                        self.current_altitude - self.cruise_altitude))
+                self.v_vertical = 0
+                self.flight_phase = &#34;cruise&#34;
+                return True
+
+            elif (self.current_altitude + self.vertical_speed) &gt;= self.cruise_altitude:
+                self.current_altitude = self.cruise_altitude
+                self.v_vertical = self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;climb&#34;
+                return False
+
+            else:
+                self.current_altitude += self.vertical_speed
+                self.v_vertical = self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;climb&#34;
+                return False
+
+        elif self.pos == self.target:
+            # If the drone can reach an altitude of 0 in this step, just fix it to 0
+            if self.current_altitude &lt;= 0:
+                if self.current_altitude &lt; 0:
+                    print(&#34;Warning: flying {} meters below destination altitude&#34;.format(
+                        self.current_altitude))
+                self.v_vertical = 0
+                self.flight_phase = &#34;arrived&#34;
+                return True
+
+            elif self.current_altitude &lt;= 0 + self.vertical_speed:
+                self.current_altitude = 0
+                self.v_vertical = -self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;descend&#34;
+                return False
+
+            else:
+                self.current_altitude -= self.vertical_speed
+                self.v_vertical = -self.vertical_speed
+                self.flown_time_current += 1
+                self.total_flown_time_incl_unfinished += 1
+                self.flight_phase = &#34;descend&#34;
+                return False
+
+
+    # Move forward, update dynamics
+    def move(self):
+        &#39;&#39;&#39;
+        Moves the drone both virtually (self.pos_m) and physically (self.pos) if needed.
+        @return: True if destination is reached
+        &#39;&#39;&#39;
+
+        # flown time count +1 and calculate risk
+
+        self.flown_time_current += 1
+        self.total_flown_time_incl_unfinished += 1
+
+        # Set path (list of waypoints) of the drone to fly
+        if len(self.path) == 0:
+            self.path = self.flight_plan[:]
+            self.planned_path = self.flight_plan[:]
+
+        self.findNextVirtualStep()
+
+        # check whether reached the next path waypoints (reached: distance within one step move (in meters))
+        if self.dis_to_target &gt; self.v_horizontal / 2:
+            self.moveVirtualStep()
+
+        else:
+            # Move drone to the next waypoint in grid. Check if there are any collissions.
+            if not self.detect_collissions():
+                self.hover = False # This code is a reminder of the CD&amp;R implementation, and not important for functioning of the current code.
+
+                # Move to next point on grid AND next point on virtual (m) grid
+                # NOTE: Because moves can also be diagonal, it is impossible to design the model in such a way that it always &#34;perfectly&#34; reaches the next point.
+
+                next_point = (int(round((self.pos_m[0] / self.model.grid_size_m_x), 0)),
+                              int(round((self.pos_m[1] / self.model.grid_size_m_y), 0)))
+
+                # Two verification steps to ensure the integrity of the move function.
+                if next_point != self.path[0]:
+                    raise Exception(&#34;Moving, but not to the next point in the path&#34;)
+
+                if self.pos == next_point:
+                    raise Exception(&#34;Trying to move a drone to the same point as it already is!&#34;)
+
+                # Move one step on the real grid
+                self.model.grid.move_agent(self, next_point)
+                self.model.position_heatmap[next_point] += 1
+                self.path.pop(0)
+
+                # Also move one step on the virtual grid.
+                if self.pos != self.target:
+                    self.findNextVirtualStep()
+                    self.moveVirtualStep()
+
+                # check if reached target
+                if len(self.path) == 0:
+                    return True
+            else:
+                self.hover = True
+                self.hover_time += 1
+
+    def findNextVirtualStep(self):
+        &#34;&#34;&#34;
+        Based on the goal of the next step, the drone moves one step on the virtual grid. This is done by storing some variables, which are then accessed in subsequent methods.
+        @rtype: None
+
+        &#34;&#34;&#34;
+        self.next_target = self.path[0]
+        self.next_target_m = (self.next_target[0] * self.model.grid_size_m_x,
+                              self.next_target[1] * self.model.grid_size_m_y)
+
+        # Calculate next position of drone after one step move (in meters)
+        self.diff_to_next_m_x = self.next_target_m[0] - self.pos_m[0]
+        self.diff_to_next_m_y = self.next_target_m[1] - self.pos_m[1]
+        self.dis_to_target = pow(pow(self.diff_to_next_m_x, 2) + pow(self.diff_to_next_m_y, 2), 0.5)
+
+    def moveVirtualStep(self):
+        &#39;&#39;&#39;
+        Given that self.dis_to_target and self.diff_to_next_m_x &amp;..y are set (that is done by findNextVirtualStep), it moves to the next virtual step
+        @return: None, but changes self.pos_m to the next virtual position
+        &#39;&#39;&#39;
+
+        # Calculate heading of drone
+        self.heading = (self.diff_to_next_m_x / self.dis_to_target,
+                        self.diff_to_next_m_y / self.dis_to_target)
+
+        # self.model.heading_list.append(self.heading)
+        # Calculate next position (in meters)
+
+        self.next_pos_m = (self.pos_m[0] + self.v_horizontal * self.heading[0],
+                           self.pos_m[1] + self.v_horizontal * self.heading[1])
+
+        self.m_route.append(self.next_pos_m)
+        self.m_target_route.append(self.next_target_m)
+
+        delta_distance = ((self.next_pos_m[0] - self.pos_m[0]) ** 2 + (
+                self.next_pos_m[1] - self.pos_m[1]) ** 2) ** 0.5
+
+        self.flown_dis_current += delta_distance
+
+        self.flown_dis_total += delta_distance
+
+        if abs(pow(pow(self.pos_m[0] - self.next_pos_m[0], 2) + pow(self.pos_m[1] - self.next_pos_m[1], 2),
+                   0.5) - self.v_horizontal) &lt; 0.01 * self.v_horizontal:
+            self.pos_m = self.next_pos_m
+            # self.
+        else:
+            raise Exception(&#34;Next step is not equal to distance&#34;)
+
+        # Calculate flown distance
+
+    # Deliver package at delivery point
+    def DeliverPackage(self):
+        &#39;&#39;&#39;
+        Triggered whenever a drone arrives at the end of the flight-plan, and delivers  pacakge.
+        @rtype: None
+        &#39;&#39;&#39;
+
+        # Tries to deliver a package
+        # If there&#39;s a delivery point in the same cell, deliver the package there.
+        cellmates = self.model.grid.get_cell_list_contents([self.pos])
+        if len(cellmates) &gt; 1:
+            for cellmate in cellmates:
+                if type(cellmate) is DeliveryPointAgent:
+                    # print(&#34;Delivered package&#34;)
+                    cellmate.deliveries += 1
+                    self.model.total_deliveries += 1
+                    self.package = False
+                    self.state = &#39;back_hub&#39;
+                    self.target = self.hub_pos
+        if self.package:
+            raise Exception(&#34;Delivering package failed&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>mesa.agent.Agent</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="github_version.agents.drone_agent.DroneAgent.DeliverPackage"><code class="name flex">
+<span>def <span class="ident">DeliverPackage</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Triggered whenever a drone arrives at the end of the flight-plan, and delivers
+pacakge.
+@rtype: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def DeliverPackage(self):
+    &#39;&#39;&#39;
+    Triggered whenever a drone arrives at the end of the flight-plan, and delivers  pacakge.
+    @rtype: None
+    &#39;&#39;&#39;
+
+    # Tries to deliver a package
+    # If there&#39;s a delivery point in the same cell, deliver the package there.
+    cellmates = self.model.grid.get_cell_list_contents([self.pos])
+    if len(cellmates) &gt; 1:
+        for cellmate in cellmates:
+            if type(cellmate) is DeliveryPointAgent:
+                # print(&#34;Delivered package&#34;)
+                cellmate.deliveries += 1
+                self.model.total_deliveries += 1
+                self.package = False
+                self.state = &#39;back_hub&#39;
+                self.target = self.hub_pos
+    if self.package:
+        raise Exception(&#34;Delivering package failed&#34;)</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.arrival_sequence"><code class="name flex">
+<span>def <span class="ident">arrival_sequence</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for the arrival sequence. Primary objective is to store statistics of the past flight.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def arrival_sequence(self):
+    &#39;&#39;&#39;Method for the arrival sequence. Primary objective is to store statistics of the past flight.&#39;&#39;&#39;
+    self.flight_plan.clear()
+
+    self.model.risk_map_individual += self.risk_path_individual
+    self.model.collective_risk += self.collective_risk_temp
+    self.model.collective_risk_cruise += self.collective_risk_temp_cruise
+    self.model.collective_risk_climb_descend += self.collective_risk_temp_climb_descent
+
+    self.collective_risk_temp = 0
+    self.collective_risk_temp_cruise = 0
+    self.collective_risk_temp_climb_descent = 0
+
+    self.risk_path_individual = np.zeros((self.model.width_risk, self.model.height_risk))
+
+    self.v_horizontal = 0
+    self.v_vertical = 0
+
+    self.total_flown_time = self.total_flown_time_incl_unfinished
+    self.total_flown_time_test += self.flown_time_current
+
+    self.flown_dis_total_completed += self.flown_dis_current
+    self.optimal_dis_total_completed += self.optimal_dis_current
+    self.planned_dis_total_completed += self.planned_dis_current
+    #
+    self.flown_dis_current = 0
+    self.optimal_dis_current = 0
+    self.planned_dis_current = 0
+    self.flown_time_current = 0</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.climb_and_descent"><code class="name flex">
+<span>def <span class="ident">climb_and_descent</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function handles the climbing &amp; descend of drones. It checks whether the drone is at the altitude it should be. If yes, it returns True (signalling to the code that it can go on with the next step). Otherwise, it signals False
+@rtype: Boolean</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def climb_and_descent(self):
+    &#34;&#34;&#34;
+    This function handles the climbing &amp; descend of drones. It checks whether the drone is at the altitude it should be. If yes, it returns True (signalling to the code that it can go on with the next step). Otherwise, it signals False
+    @rtype: Boolean
+    &#34;&#34;&#34;
+
+    if self.pos != self.target:
+        # If not at the target, we should climb, set climbing v_horizontal
+        if self.current_altitude &gt;= self.cruise_altitude:
+            if self.current_altitude &gt; self.cruise_altitude:
+                print(&#34;Warning: flying {} meters above cruise altitude&#34;.format(
+                    self.current_altitude - self.cruise_altitude))
+            self.v_vertical = 0
+            self.flight_phase = &#34;cruise&#34;
+            return True
+
+        elif (self.current_altitude + self.vertical_speed) &gt;= self.cruise_altitude:
+            self.current_altitude = self.cruise_altitude
+            self.v_vertical = self.vertical_speed
+            self.flown_time_current += 1
+            self.total_flown_time_incl_unfinished += 1
+            self.flight_phase = &#34;climb&#34;
+            return False
+
+        else:
+            self.current_altitude += self.vertical_speed
+            self.v_vertical = self.vertical_speed
+            self.flown_time_current += 1
+            self.total_flown_time_incl_unfinished += 1
+            self.flight_phase = &#34;climb&#34;
+            return False
+
+    elif self.pos == self.target:
+        # If the drone can reach an altitude of 0 in this step, just fix it to 0
+        if self.current_altitude &lt;= 0:
+            if self.current_altitude &lt; 0:
+                print(&#34;Warning: flying {} meters below destination altitude&#34;.format(
+                    self.current_altitude))
+            self.v_vertical = 0
+            self.flight_phase = &#34;arrived&#34;
+            return True
+
+        elif self.current_altitude &lt;= 0 + self.vertical_speed:
+            self.current_altitude = 0
+            self.v_vertical = -self.vertical_speed
+            self.flown_time_current += 1
+            self.total_flown_time_incl_unfinished += 1
+            self.flight_phase = &#34;descend&#34;
+            return False
+
+        else:
+            self.current_altitude -= self.vertical_speed
+            self.v_vertical = -self.vertical_speed
+            self.flown_time_current += 1
+            self.total_flown_time_incl_unfinished += 1
+            self.flight_phase = &#34;descend&#34;
+            return False</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.detect_collissions"><code class="name flex">
+<span>def <span class="ident">detect_collissions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A simple implementation of CD&amp;R was implemented. However, it was decided to not use this the thesis.
+It returns True if the drone is in conflict, otherwise, it returns False
+@rtype: Boolean</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_collissions(self):
+    &#34;&#34;&#34;
+    A simple implementation of CD&amp;R was implemented. However, it was decided to not use this the thesis.
+    It returns True if the drone is in conflict, otherwise, it returns False
+    @rtype: Boolean
+    &#34;&#34;&#34;
+    #
+
+    if self.model.conflictdetection == False:
+        return False
+
+    surroundings = self.model.grid.get_neighborhood(
+        self.pos,
+        moore=True,
+        include_center=False, radius=1)
+    collission_detected = False
+
+    for i in surroundings:  # trying to remove obstacle agents from possibilities, this doesnt work yet
+        content = self.model.grid.get_cell_list_contents(i)
+        for j in content:
+            # Check if there is another agent that is a drone
+            if type(j) is DroneAgent:
+                if j.state == &#39;back_hub&#39; or j.state == &#39;to_customer&#39;:
+                    if not j.hover:
+                        # print(&#39;collission detected&#39;)
+                        return True
+    return collission_detected</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.findNextVirtualStep"><code class="name flex">
+<span>def <span class="ident">findNextVirtualStep</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Based on the goal of the next step, the drone moves one step on the virtual grid. This is done by storing some variables, which are then accessed in subsequent methods.
+@rtype: None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def findNextVirtualStep(self):
+    &#34;&#34;&#34;
+    Based on the goal of the next step, the drone moves one step on the virtual grid. This is done by storing some variables, which are then accessed in subsequent methods.
+    @rtype: None
+
+    &#34;&#34;&#34;
+    self.next_target = self.path[0]
+    self.next_target_m = (self.next_target[0] * self.model.grid_size_m_x,
+                          self.next_target[1] * self.model.grid_size_m_y)
+
+    # Calculate next position of drone after one step move (in meters)
+    self.diff_to_next_m_x = self.next_target_m[0] - self.pos_m[0]
+    self.diff_to_next_m_y = self.next_target_m[1] - self.pos_m[1]
+    self.dis_to_target = pow(pow(self.diff_to_next_m_x, 2) + pow(self.diff_to_next_m_y, 2), 0.5)</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.move"><code class="name flex">
+<span>def <span class="ident">move</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves the drone both virtually (self.pos_m) and physically (self.pos) if needed.
+@return: True if destination is reached</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def move(self):
+    &#39;&#39;&#39;
+    Moves the drone both virtually (self.pos_m) and physically (self.pos) if needed.
+    @return: True if destination is reached
+    &#39;&#39;&#39;
+
+    # flown time count +1 and calculate risk
+
+    self.flown_time_current += 1
+    self.total_flown_time_incl_unfinished += 1
+
+    # Set path (list of waypoints) of the drone to fly
+    if len(self.path) == 0:
+        self.path = self.flight_plan[:]
+        self.planned_path = self.flight_plan[:]
+
+    self.findNextVirtualStep()
+
+    # check whether reached the next path waypoints (reached: distance within one step move (in meters))
+    if self.dis_to_target &gt; self.v_horizontal / 2:
+        self.moveVirtualStep()
+
+    else:
+        # Move drone to the next waypoint in grid. Check if there are any collissions.
+        if not self.detect_collissions():
+            self.hover = False # This code is a reminder of the CD&amp;R implementation, and not important for functioning of the current code.
+
+            # Move to next point on grid AND next point on virtual (m) grid
+            # NOTE: Because moves can also be diagonal, it is impossible to design the model in such a way that it always &#34;perfectly&#34; reaches the next point.
+
+            next_point = (int(round((self.pos_m[0] / self.model.grid_size_m_x), 0)),
+                          int(round((self.pos_m[1] / self.model.grid_size_m_y), 0)))
+
+            # Two verification steps to ensure the integrity of the move function.
+            if next_point != self.path[0]:
+                raise Exception(&#34;Moving, but not to the next point in the path&#34;)
+
+            if self.pos == next_point:
+                raise Exception(&#34;Trying to move a drone to the same point as it already is!&#34;)
+
+            # Move one step on the real grid
+            self.model.grid.move_agent(self, next_point)
+            self.model.position_heatmap[next_point] += 1
+            self.path.pop(0)
+
+            # Also move one step on the virtual grid.
+            if self.pos != self.target:
+                self.findNextVirtualStep()
+                self.moveVirtualStep()
+
+            # check if reached target
+            if len(self.path) == 0:
+                return True
+        else:
+            self.hover = True
+            self.hover_time += 1</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.moveVirtualStep"><code class="name flex">
+<span>def <span class="ident">moveVirtualStep</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given that self.dis_to_target and self.diff_to_next_m_x &amp;..y are set (that is done by findNextVirtualStep), it moves to the next virtual step
+@return: None, but changes self.pos_m to the next virtual position</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveVirtualStep(self):
+    &#39;&#39;&#39;
+    Given that self.dis_to_target and self.diff_to_next_m_x &amp;..y are set (that is done by findNextVirtualStep), it moves to the next virtual step
+    @return: None, but changes self.pos_m to the next virtual position
+    &#39;&#39;&#39;
+
+    # Calculate heading of drone
+    self.heading = (self.diff_to_next_m_x / self.dis_to_target,
+                    self.diff_to_next_m_y / self.dis_to_target)
+
+    # self.model.heading_list.append(self.heading)
+    # Calculate next position (in meters)
+
+    self.next_pos_m = (self.pos_m[0] + self.v_horizontal * self.heading[0],
+                       self.pos_m[1] + self.v_horizontal * self.heading[1])
+
+    self.m_route.append(self.next_pos_m)
+    self.m_target_route.append(self.next_target_m)
+
+    delta_distance = ((self.next_pos_m[0] - self.pos_m[0]) ** 2 + (
+            self.next_pos_m[1] - self.pos_m[1]) ** 2) ** 0.5
+
+    self.flown_dis_current += delta_distance
+
+    self.flown_dis_total += delta_distance
+
+    if abs(pow(pow(self.pos_m[0] - self.next_pos_m[0], 2) + pow(self.pos_m[1] - self.next_pos_m[1], 2),
+               0.5) - self.v_horizontal) &lt; 0.01 * self.v_horizontal:
+        self.pos_m = self.next_pos_m
+        # self.
+    else:
+        raise Exception(&#34;Next step is not equal to distance&#34;)</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.start_new_mission"><code class="name flex">
+<span>def <span class="ident">start_new_mission</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Whenever a drone gets a new task, this method is triggered. Amongst others, it finds a flight-plan and calculates some statistics.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_new_mission(self):
+    &#39;&#39;&#39;Whenever a drone gets a new task, this method is triggered. Amongst others, it finds a flight-plan and calculates some statistics.&#39;&#39;&#39;
+    self.flight_plan = find_a_star_path(self, self.pos, self.target, self.model.risk_optimal)
+    # print(&#34;Flight to {} via {}&#34;.format(self.target, self.flight_plan))
+
+    # Calculate flying distance in flight plan
+    planned_dis_this_flight = 0
+    for i in range(0, len(self.flight_plan) - 1):
+        planned_dis_this_flight += (
+
+            pow(pow(self.model.grid_size_m_x * (self.flight_plan[i][0] - self.flight_plan[i + 1][0]), 2) +
+                pow(self.model.grid_size_m_y * (self.flight_plan[i][1] - self.flight_plan[i + 1][1]), 2),
+                0.5))
+
+    self.flight_plan.pop(0)  # remove the first one, which is the current pos
+
+    self.planned_dis_total += planned_dis_this_flight
+    self.planned_dis_current += planned_dis_this_flight
+    # self.planned_dis += planned_dis Do this after a flight!
+    optimal_dis_this_flight = (
+        pow(pow(self.model.grid_size_m_x * (self.flight_plan[-1][0] - self.flight_plan[0][0]), 2) +
+            pow(self.model.grid_size_m_y * (self.flight_plan[-1][1] - self.flight_plan[0][1]), 2),
+            0.5))
+    self.optimal_dis_total += optimal_dis_this_flight
+    self.optimal_dis_current += optimal_dis_this_flight
+
+    if optimal_dis_this_flight &gt; 1.001 * planned_dis_this_flight:
+        # added 1.001 for rounding errors in straight paths.
+        raise Exception(&#34;Optimal distance longer than planned distance&#34;)</code></pre>
+</details>
+</dd>
+<dt id="github_version.agents.drone_agent.DroneAgent.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A single step of the agent.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self):
+    # The following lines are purely for logging what is going on
+    if self.state == &#39;waiting&#39;:
+        self.model.time_waiting += 1
+    elif self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+        # Log where the drone is flying
+        current_category = self.model.shelter_category_scaled[self.pos]
+        self.model.flight_time_shelter_category[current_category] += 1
+
+        # Log time spent in cruise / takeoff / climb/descend
+        if self.current_altitude == self.cruise_altitude:
+            self.model.time_cruise += 1
+        elif self.current_altitude == 0 and self.pos == self.target:
+            self.model.time_takeoff_landing += 1
+        else:
+            self.model.time_climb_descent += 1
+    else:
+        raise Exception(&#34;Drone is in unknown state&#34;)
+
+    # Calculate the risk of this step
+    if self.state == &#39;to_customer&#39; or self.state == &#39;back_hub&#39;:
+        if self.current_altitude &gt; 0:
+            # When the altitude = 0, there is no risk, hence the &gt; 0
+            CalculateRisk(self, planning=False)
+
+        # The drone can not move horizontally and vertically at the same time, verify what is going wrong
+
+        if self.v_horizontal == self.cruise_speed is abs(self.v_vertical) == self.vertical_speed:
+            raise Exception(&#34;We have both horizontal and vertical v_horizontal. That&#39;s not possible!&#34;)
+
+    elif self.state == &#39;waiting&#39;:
+        if self.v_horizontal != 0 or self.v_vertical != 0:
+            # Speed must be 0 while waiting, verify this
+            raise Exception(&#34;Non-zero v_horizontal while waiting...&#34;)
+
+    # If going to a customer, go through all steps required to ultimately deliver a package.
+    if self.state == &#39;to_customer&#39;:
+        # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+        if (self.pos != self.target) and len(self.flight_plan) == 0:
+            self.start_new_mission()
+
+        # Check if the drone is at the altitude it should be. If that&#39;s the case, the drone can move, otherwise,
+        # the climb_and_descend-method makes sure it travels in the direction of the desired altitude
+        is_at_target_altitude = self.climb_and_descent()
+
+        if is_at_target_altitude:
+            self.v_horizontal = self.cruise_speed
+
+            # If the drone is at the target of the mission, deliver the package. Otherwise, move.
+            if self.pos == self.target:
+                self.arrival_sequence()
+                self.DeliverPackage()
+                self.state = &#39;back_hub&#39;
+                self.target = self.hub_pos
+            else:
+                self.move()
+        else:
+            self.v_horizontal = 0
+            # self.model.time_climb_descent += 1
+
+    # If the goal is to go back to the hub, go through all steps required to do so.
+    elif self.state == &#39;back_hub&#39;:
+        self.target = self.hub_pos
+        # If not at the target &amp; we don&#39;t have a flight-plan yet, generate one.
+        if (self.pos != self.target) and len(self.flight_plan) == 0:
+            self.start_new_mission()
+
+        is_at_target_altitude = self.climb_and_descent()
+
+        if is_at_target_altitude:
+            self.v_horizontal = self.cruise_speed
+            if self.pos == self.target:
+                if self.flight_phase != &#34;arrived&#34;:
+                    raise Exception(&#34;Flight phases are not correct&#34;)
+                self.arrival_sequence()
+                self.state = &#39;waiting&#39;
+            else:
+                self.move()
+        else:
+            self.v_horizontal = 0
+
+    elif self.state == &#34;waiting&#34;:
+        # The drone can only be waiting at the hub. Check if this is the case.
+        cellmates = self.model.grid.get_cell_list_contents([self.pos])
+        if not cellmates or not any(isinstance(x, HubAgent) for x in cellmates):
+            raise Exception(&#34;ERROR, DRONE IS WAITING SOMEWHERE WITHOUT CELLMATES / NO HUB AS CELLMATE&#34;)
+
+        # The following code makes sure the drone is assigned an package.
+        for cellmate in cellmates:
+            if type(cellmate) is HubAgent:
+                # Check if the hub has outstanding orders. If so, pick up the task.
+                if cellmate.orders &gt; 0:
+                    if not cellmate.unlimited_demand:
+                        cellmate.orders -= 1
+                    self.state = &#34;to_customer&#34;
+                    self.model.total_pickups += 1
+                    self.target = self.random.choice(self.deliver_pos)
+                    # Break the execution of the for-loop. This isn&#39;t strictly necessary, as there can&#39;t be more 
+                    # than 1 hub at each grid-location. However, it prevents the need of looping through all 
+                    # other cellmates, which speeds things up a bit. 
+                    break</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="github_version.agents" href="index.html">github_version.agents</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="github_version.agents.drone_agent.DroneAgent" href="#github_version.agents.drone_agent.DroneAgent">DroneAgent</a></code></h4>
+<ul class="two-column">
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.DeliverPackage" href="#github_version.agents.drone_agent.DroneAgent.DeliverPackage">DeliverPackage</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.arrival_sequence" href="#github_version.agents.drone_agent.DroneAgent.arrival_sequence">arrival_sequence</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.climb_and_descent" href="#github_version.agents.drone_agent.DroneAgent.climb_and_descent">climb_and_descent</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.detect_collissions" href="#github_version.agents.drone_agent.DroneAgent.detect_collissions">detect_collissions</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.findNextVirtualStep" href="#github_version.agents.drone_agent.DroneAgent.findNextVirtualStep">findNextVirtualStep</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.move" href="#github_version.agents.drone_agent.DroneAgent.move">move</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.moveVirtualStep" href="#github_version.agents.drone_agent.DroneAgent.moveVirtualStep">moveVirtualStep</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.start_new_mission" href="#github_version.agents.drone_agent.DroneAgent.start_new_mission">start_new_mission</a></code></li>
+<li><code><a title="github_version.agents.drone_agent.DroneAgent.step" href="#github_version.agents.drone_agent.DroneAgent.step">step</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

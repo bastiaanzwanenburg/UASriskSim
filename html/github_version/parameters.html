@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>github_version.parameters API documentation</title>
+<meta name="description" content="Specifies all parameters used for a simulation run. Possible to set fixed_params, which are always used, and variable_params, which takes a list per …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>github_version.parameters</code></h1>
+</header>
+<section id="section-intro">
+<p>Specifies all parameters used for a simulation run. Possible to set fixed_params, which are always used, and variable_params, which takes a list per parameter, and subsequently runs the model for each parameter in the list.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Specifies all parameters used for a simulation run. Possible to set fixed_params, which are always used, and variable_params, which takes a list per parameter, and subsequently runs the model for each parameter in the list.
+&#39;&#39;&#39;
+
+from helpers.metrics import *
+from env.loadEnvironment import loadEnvironment
+import random
+import numpy as np
+
+x = []
+
+
+scaling_factor = 5
+risk_map_resolution = 5
+n_iterations = 1  #Number of batch runs
+max_steps = 1000 #Max steps for each batch run
+n_agents = 1
+
+MP = False
+
+saveRiskMap = False
+
+# Generate a new line
+path_database = &#34;database/&#34; + str(random.random())
+path_lockfile = &#34;database/&#34; + str(random.random())
+
+
+fixed_params = {
+    &#34;city&#34;: &#34;Paris&#34;,
+    &#34;scaling_factor&#34;: scaling_factor,
+    &#34;risk_map_resolution&#34;: risk_map_resolution,
+
+    &#34;path_database&#34;: path_database,
+    &#34;path_lockfile&#34;: path_lockfile,
+
+    # &#34;Hub_location&#34;: all_hub_locations,  # relative location on map, (0,0) on top-left, width 200, height 165
+    # &#34;Delivery_location&#34;: all_delivery_locations,
+
+    # Either fixed hub/DP locations or random locations should be used
+    # &#34;Hub_location&#34;: [(72, 79)],
+    # &#34;Delivery_location&#34;: [(90, 75)],
+    &#34;n_random_hubs&#34;: 4,
+    &#34;n_random_delivery_locations&#34;: 100,
+
+
+    &#34;v_impact_scenario&#34;: 1, # 1 = use modeled impact speed, 2 = use terminal speed, 3 = use terminal speed + 40%
+    &#34;FailureRateCruise&#34;: 0.0005,  # P(failure) in one second
+    &#34;FailureRateClimbDescend&#34;: 0.0005, # P(failure) in one second
+    &#34;Risk_Optimal&#34;: &#34;shelter_and_pop_density&#34;,  # Options: calculate_risk, shelter_and_pop_density, pop_density, False
+    &#34;Nofly&#34;: False, # Whether or not to use no-fly zones
+    &#34;conflictdetection&#34;: False, # Wheter or not to use CD&amp;R (not implemented now)
+    &#34;total_demand_per_hour&#34;: 976,  # Demand in packages per hour
+    &#34;max_steps&#34;: max_steps, # Max simulation steps to take
+    &#34;random_hub_location&#34;: &#34;edges&#34;, # Specifies where hub locations are placed
+    # &#34;scale_demand_with_density&#34;: True,
+    &#34;n_agents&#34;: n_agents,
+    &#34;cruise_altitude&#34;: 100,
+    &#34;add_value&#34;: 0.01,
+    &#34;seed&#34;: None,
+    &#34;save_risk_maps&#34;: saveRiskMap,
+    &#34;random_CD&#34;: False,
+    &#34;include_wind&#34;: False,
+    &#34;water_setting&#34;: 0,
+    &#34;correction_matrix&#34;: x
+    # &#34;modify_dens_scenario&#34;: 1
+    # &#34;water_setting&#34;: 0
+    # &#34;modify_dens_list&#34;: [0, 0.1693, 0, 0.0716, 0, 0.5488, 0, 0] # 0 = remove pop dens from water.
+    # &#34;modify_dens_list&#34;: [0, 0., 0, 0.0, 0, 0.965, 0, 0]
+    # &#34;modify_dens_scenario&#34;: &#34;extreme_day&#34;
+}
+# variable_params = {&#34;modify_dens_scenario&#34;: [1, 2, 3, 4, 5, 6, 7, 8, 9], &#34;city&#34;: [&#34;Delft&#34;, &#34;Paris&#34;, &#34;NewYork&#34;]}
+# variable_params = {&#34;modify_dens_scenario&#34;: [1, 2, 3, 4, 5, 6, 7, 8, 9]}
+
+variable_params = {}
+model_reporter_parameters = {&#34;Flown distance&#34;: compute_flown_dis,
+                             &#34;Planned distance&#34;: compute_planned_dis,
+                             &#34;Optimal distance&#34;: compute_optimal_dis,
+                             &#34;Individual_risk_map&#34;: compute_individual_risk_map,
+                             # &#34;Collective risk&#34;: compute_collective_risk,
+                             &#34;Total Demand&#34;: compute_total_demand,
+                             &#34;Total Deliveries&#34;: compute_total_deliveries,
+                             &#34;Total Pickups&#34;: compute_total_pickups,
+                             &#34;position_heatmap&#34;: position_heatmap,
+                             &#34;crash_in_quantile&#34;: crash_in_quantile,
+                             # &#34;Heading list&#34;: return_heading_list,
+                             &#34;compute_flown_time_incl_unfinished&#34;: compute_flown_time_incl_unfinished,
+                             &#34;Time Waiting&#34;: compute_time_waiting,
+                             &#34;Time hovering (CDR)&#34;: compute_hover_time,
+                             &#34;Flighttime per shelter category&#34;: compute_time_in_shelter_category,
+                             &#34;Cruise Time&#34;: compute_time_cruise,
+                             &#34;Time Climb and Descent&#34;: compute_time_climb_descent,
+                             &#34;Takeoff and landing time&#34;: compute_time_takeoff_landing,
+                             &#34;density_matrix_scaled_risk&#34;: density_matrix_scaled_risk,
+                             &#34;area_risk_grid_m&#34;: area_risk_grid_m,
+                             &#34;Collective risk&#34;: compute_collective_risk,
+                             &#34;Collective risk cruise&#34;: compute_collective_risk_cruise,
+                             &#34;Collective risk c/d&#34;: compute_collective_risk_climb_descend,
+                             &#34;below_1&#34;: below_1,
+                            &#34;below_2&#34;: below_2,
+                            &#34;below_3&#34;: below_3,
+                             &#34;below_4&#34;: below_4,
+                             &#34;below_5&#34;: below_5,
+                             &#34;below_6&#34;: below_6,
+
+                             &#34;NNI_below_1&#34;: NNI_below_1,
+                             &#34;NNI_below_2&#34;: NNI_below_2,
+                             &#34;NNI_below_3&#34;: NNI_below_3,
+                             &#34;NNI_below_4&#34;: NNI_below_4,
+                             &#34;NNI_below_5&#34;: NNI_below_5,
+                             &#34;NNI_below_6&#34;: NNI_below_6,
+                             &#34;avg_risk_env&#34;: env_avg_risk,
+                             &#34;env_avg_risk_hubs&#34;: env_avg_risk_hubs,
+                             &#34;env_avg_risk_delivery_points&#34;: env_avg_risk_delivery_points,
+                             &#34;same_grid&#34;: same_grid,
+                             &#34;other_grid&#34;: other_grid,
+                             &#34;hub-location&#34;: hubpos,
+                             &#34;modify_alpha&#34;: modify_alpha,
+                             &#34;modify_beta&#34;: modify_beta,
+                             &#34;modify_shelter&#34;: modify_shelter,
+                             &#34;modify_mass&#34;: modify_mass
+                             # &#34;Crash Distance&#34;: compute_avg_distance_to_impact,
+                             # &#34;Crash Impact&#34;: compute_avg_E_on_impact
+                             }</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="github_version" href="index.html">github_version</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+New York MAP
+
+
+Source: https://www.arcgis.com/home/webmap/viewer.html?webmap=32f1080d874a45628ca23ca8e94bd58b
+
+Source: http://www2.census.gov/geo/ua/ua_list_all.txt
+
+
+Yellow = highest = 30,000 - 150,000 people / square KM
+
+Orange = very high = 7,000 - 30,000 ppl / square KM
+
+Red = High density = 5,200 - 7,000 ppl / square KM
+
+Dark-red = low = 3,330 - 5,200 ppl / square KM
+
+Dark-dark-red = very low = 1,500 - 3,330 ppl / square KM
+
+Black = lowest < 1,500  ppl / square KM
